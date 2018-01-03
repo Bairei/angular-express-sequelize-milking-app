@@ -1,2 +1,6 @@
 # angular-express-sequelize-milking-app
-Simple 'full-stack', Single Page Application, written in Angular and Node.js, using Sequelize ORM.
+Simple Single Page Application, written in Angular and Node.js, using Sequelize ORM.
+
+deploying:
+* `npm install`, while in project's main directory
+* `npm start` to launch application
