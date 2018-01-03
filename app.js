@@ -22,9 +22,9 @@ sequelize.authenticate().then(() => {
   console.log('Connection has been established successfully');
   Cow.sync({force: true}).then(() => {
     Cow.bulkCreate([
-      { name: 'Mucka' },
-      { name: 'Latka' },
-      { name: 'Ruda' }
+      { name: 'Mucka', sex: 'Female', birthdate: '10-10-2016' },
+      { name: 'Latka', sex: 'Female', birthdate: '09-12-2014' },
+      { name: 'Ruda', sex: 'Female', birthdate: '03-30-2010' } // mm-dd-yyyy
     ]).then(() => {
       return Cow.findAll();
     }).then(cows => {

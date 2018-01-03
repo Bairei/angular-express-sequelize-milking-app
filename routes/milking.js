@@ -5,7 +5,17 @@ const Milking = require('../models/Milking');
 
 router.get('/', (req, res, next) => {
   Milking.findAll().then(milkings => {
-    return res.json(milkings);
+    let updatedMilkings = [];
+    milkings.forEach((el, ind) => {
+      updatedMilkings.push(Cow.findById(el.cowId).then(cow => {
+        el.dataValues['cow'] = cow.dataValues;
+        return el;
+      }));
+    });
+    Promise.all(updatedMilkings).then(values => {
+      // console.log(values);
+      res.json(values);
+    });
   }, err => {
     if (err) next(err);
   });
@@ -13,7 +23,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   Milking.findById(req.params.id).then(milking => {
-    return res.json(milking);
+    res.json(milking);
   }, err => {
     if (err) next(err);
   });
@@ -33,7 +43,7 @@ router.post('/', (req, res, next) => {
       litres: req.body.litres
     }).then(milking => {
       cow.addMilking(milking).then(() => {
-        return res.json(milking);
+        res.json(milking);
       });
     });
   });

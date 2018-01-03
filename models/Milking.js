@@ -1,17 +1,18 @@
-var Sequelize = require('sequelize');
-var sequelize = require('./sequelize');
-var Cow = require('./Cow');
+const Sequelize = require('sequelize');
+const sequelize = require('./sequelize');
+const Cow = require('./Cow');
 
-var Milking = sequelize.define('milking', {
+const Milking = sequelize.define('milking', {
   date: {
-    type: Sequelize.DATEONLY,
-    allowEmpty: false,
+    type: Sequelize.DATE,
+    allowNull: false,
     defaultValue: Sequelize.NOW
   },
   litres: {
     type: Sequelize.SMALLINT,
     allowNull: false,
-    defaultValue: 0
+    defaultValue: 0,
+    notEmpty: true
   }
 });
 

@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Cows</h1>
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Sex</th>
+        <th>Birthdate</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cow of cows">
+        <td>{{ cow.id }}</td>
+        <td>{{ cow.name }}</td>
+        <td>{{ cow.sex }}</td>
+        <td>{{ cow.birthdate.split('T')[0] }}</td>
+        <td>Show details</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
