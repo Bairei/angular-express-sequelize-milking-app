@@ -7,7 +7,7 @@ var Cow = sequelize.define('cow', {
     allowNull: false,
     notEmpty: true
   },
-  sex: {
+  gender: {
     type: Sequelize.STRING,
     allowNull: false,
     defaultValue: 'Female',

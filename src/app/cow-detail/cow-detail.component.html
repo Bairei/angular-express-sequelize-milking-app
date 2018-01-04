@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>
+    <a [routerLink]="['/cows']" class="btn btn-default">
+      <span class="oi oi-chevron-left" aria-hidden="true"></span>
+    </a>
+    {{ cow.name }}
+  </h1>
+  <dl class="list">
+    <dt>Id:</dt>
+    <dd>{{ cow.id }}</dd>
+    <dt>Gender</dt>
+    <dd>{{ cow.gender }}</dd>
+    <dt>Birthdate</dt>
+    <dd>{{ cow.birthdate | formatDate: 'DD-MM-YYYY' }}</dd>
+  </dl>
+  <div class="row">
+    <div class="col-md-12">
+      <a [routerLink]="['/cow-edit', cow.id]" class="btn btn-primary">Edit</a>
+      <button class="btn btn-danger" type="button" (click)="deleteCow(cow.id)">Delete</button>
+    </div>
+  </div>
+</div>

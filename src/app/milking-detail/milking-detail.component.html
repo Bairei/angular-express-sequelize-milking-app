@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>
+    <a [routerLink]="['/milkings']" class="btn btn-default">
+      <span class="oi oi-chevron-left" aria-hidden="true"></span>
+    </a>
+    Milking no. {{ milking.id }}
+  </h1>
+  <dl class="list">
+    <dt>Cow:</dt>
+    <dd>{{ cow.name }}</dd>
+    <dt>Milking date</dt>
+    <dd>{{ milking.date | formatDate: 'DD-MM-YYYY' }}</dd>
+    <dt>Litres</dt>
+    <dd>{{ milking.litres }}</dd>
+  </dl>
+  <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/milking-edit', milking.id]" class="btn btn-primary">Edit</a>
+        <button class="btn btn-danger" type="button" (click)="deleteMilking(milking.id)">Delete</button>
+      </div>
+    </div>
+</div>

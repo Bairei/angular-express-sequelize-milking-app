@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>
+    <a [routerLink]="['/cows']" class="btn btn-default">
+      <span class="oi oi-chevron-left" aria-hidden="true"></span>
+    </a>
+    Edit Cow
+  </h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="updateCow(cow.id)" #cowForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="cow.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Gender</label>
+          <ng-select [items]="genders" bindLabel="name" bindValue="name" placeholder="Select Gender" [(ngModel)]="cow.gender" name="gender" required></ng-select>
+        </div>
+        <div class="form-group">
+          <label for="name">Birthdate</label>
+          <input type="text" class="form-control" bsDatePicker [(ngModel)]="cow.birthdate" placeholder="MM-DD-YYYY" name="birthdate" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!cowForm.form.valid">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

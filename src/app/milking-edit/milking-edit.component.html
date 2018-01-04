@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>
+      <a [routerLink]="['/milkings']" class="btn btn-default">
+        <span class="oi oi-chevron-left" aria-hidden="true"></span>
+      </a>
+      Add New Milking
+    </h1>
+    <div class="row">
+      <div class="col-md-6">
+        <form (ngSubmit)="updateMilking(milking.id)" #milkingForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <ng-select [items]="cows" bindLabel="name" bindValue="id" placeholder="Select Cow" [(ngModel)]="milking.cowId" name="cowId"></ng-select>
+          </div>
+          <div class="form-group">
+            <label for="name">Litres</label>
+            <input type="number" class="form-control" [(ngModel)]="milking.litres" placeholder="0" name="litres">
+          </div>
+          <div class="form-group">
+            <label for="name">Date</label>
+            <input type="text" class="form-control" [(ngModel)]="milking.date" placeholder="MM-DD-YYYY" name="date">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success" [disabled]="!milkingForm.form.valid">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
