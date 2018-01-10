@@ -4,4 +4,4 @@ Simple Single Page Application, written in Angular and Node.js (with Express.js 
 deploying:
 * `npm install`, while in project's main directory
 * `npm start` to launch application
-* enter in the browser http://localhost:3000/milkings
+* assumming there were no errors during compiling the project, enter address `localhost:3000` in the browser
